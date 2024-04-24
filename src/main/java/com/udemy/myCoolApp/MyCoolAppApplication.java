@@ -2,7 +2,9 @@ package com.udemy.myCoolApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+/*scanBasePackages = {"com.udemy.myCoolApp",
+		"com.udemy.util"})
+ */
 @SpringBootApplication
 public class MyCoolAppApplication {
 

@@ -2,6 +2,7 @@ package com.udemy.myCoolApp.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 public class FunRestController {
     // inject properties for: coach.name and team.name
