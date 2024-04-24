@@ -1,4 +1,4 @@
-package com.udemy.myCoolApp;
+package com.udemy.util;
 
 public interface Coach {
     String getDailyWorkout();

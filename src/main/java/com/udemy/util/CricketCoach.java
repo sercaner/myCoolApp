@@ -1,6 +1,5 @@
-package com.udemy.myCoolApp.controller;
+package com.udemy.util;
 
-import com.udemy.myCoolApp.Coach;
 import org.springframework.stereotype.Component;
 
 @Component
