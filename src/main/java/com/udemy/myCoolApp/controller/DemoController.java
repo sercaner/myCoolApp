@@ -11,7 +11,7 @@ public class DemoController {
     private Coach coach;
 
      @Autowired
-    public DemoController(@Qualifier("baseballCoach") Coach coach){  //constructor injection
+    public DemoController(Coach coach){  //constructor injection
         this.coach=coach;
     }
     /*
