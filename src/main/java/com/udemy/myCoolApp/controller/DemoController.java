@@ -11,7 +11,8 @@ public class DemoController {
     private Coach coach;
 
      @Autowired
-    public DemoController(Coach coach){  //constructor injection
+    public DemoController(@Qualifier("cricketCoach") Coach coach){  //constructor injection
+         System.out.println("In constructor: " + getClass().getSimpleName());
         this.coach=coach;
     }
     /*
