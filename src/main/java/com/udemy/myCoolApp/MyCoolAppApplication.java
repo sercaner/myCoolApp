@@ -21,9 +21,33 @@ public class MyCoolAppApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			// createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
 	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// create a student object
+		System.out.println("Creating new student object ...");
+		Student tempStudent = new Student("Daffy", "Duck", "daffy.mail");
+
+		// save the student
+		studentDAO.save(tempStudent);
+		System.out.println("Saving the student ...");
+
+		//display id of the saved student
+		int theId = tempStudent.getId();
+		System.out.println("Saved student. Generated id: "+ theId);
+
+		// retrieve student based on the id: primary key
+		System.out.println("Retrieving student with id: "+ theId);
+		Student myStudent = studentDAO.findById(theId);
+
+		// display student
+		System.out.println("Found the student: "+ myStudent);
+	}
+
 	private void createMultipleStudents(StudentDAO studentDAO) {
 		// create multiple students
 		System.out.println("Creating 3 student object ...");
