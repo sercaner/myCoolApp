@@ -1,6 +1,5 @@
 package com.udemy.myCoolApp.rest;
 
-import com.udemy.myCoolApp.dao.EmployeeDAO;
 import com.udemy.myCoolApp.entity.Employee;
 import com.udemy.myCoolApp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
