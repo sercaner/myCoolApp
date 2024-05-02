@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DemoSecurityConfig {
 
-    // add support for JDBC authentication
+    // add support for JDBC authentication bcrypt
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) {
 
