@@ -14,7 +14,7 @@
 	<name>myCoolApp</name>
 	<description>Udemy project for Spring Boot</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
