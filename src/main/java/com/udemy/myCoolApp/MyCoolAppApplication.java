@@ -1,7 +1,11 @@
 package com.udemy.myCoolApp;
 
+import com.udemy.myCoolApp.dao.AccountDAO;
+import com.udemy.myCoolApp.dao.MembershipDAO;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /*scanBasePackages = {"com.udemy.myCoolApp",
 		"com.udemy.util"})
@@ -12,4 +16,26 @@ public class MyCoolAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyCoolAppApplication.class, args);
 	}
+
+	@Bean
+	public CommandLineRunner commandLineRunner(AccountDAO  theAccountDAO, MembershipDAO  theMembershipDAO) {
+		return runner -> {
+
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
+		};
+	}
+
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+
+		//call the business method
+		Account myAccount = new Account();
+		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
+
+		//call the membership business method
+		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
+
+	}
+
 }
