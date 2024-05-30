@@ -29,6 +29,9 @@ public class MyCoolAppApplication {
 
 		//call the business method
 		Account myAccount = new Account();
+		myAccount.setName("sercan");
+		myAccount.setLevel("junior");
+
 		theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.doWork();
 
