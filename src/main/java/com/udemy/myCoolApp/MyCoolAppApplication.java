@@ -2,6 +2,7 @@ package com.udemy.myCoolApp;
 
 import com.udemy.myCoolApp.dao.AccountDAO;
 import com.udemy.myCoolApp.dao.MembershipDAO;
+import com.udemy.myCoolApp.service.TrafficFortuneService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,14 +21,32 @@ public class MyCoolAppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO  theAccountDAO, MembershipDAO  theMembershipDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO  theAccountDAO,
+											   MembershipDAO  theMembershipDAO,
+											   TrafficFortuneService  theTrafficFortuneService) {
+
 		return runner -> {
 
 			//demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			//demoTheAfterReturningAdvice(theAccountDAO);
 			//demoTheAfterThrowingAdvice(theAccountDAO);
-			demoTheAfterAdvice(theAccountDAO);
+			//demoTheAfterAdvice(theAccountDAO);
+			demoTheAroundAdvice(theAccountDAO, theTrafficFortuneService);
 		};
+	}
+
+	private void demoTheAroundAdvice(AccountDAO theAccountDAO, TrafficFortuneService theTrafficFortuneService) {
+
+		System.out.println("\nMain Program: demoTheAroundAdvice");
+
+		System.out.println("Calling getFortune()");
+
+		String data = theTrafficFortuneService.getFortune();
+
+		System.out.println("\nMy fortune is: " + data);
+
+		System.out.println("Finished");
+
 	}
 
 	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
