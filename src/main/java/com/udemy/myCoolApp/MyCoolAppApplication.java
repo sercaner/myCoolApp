@@ -25,14 +25,35 @@ public class MyCoolAppApplication {
 
 			//demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			//demoTheAfterReturningAdvice(theAccountDAO);
-			demoTheAfterThrowingAdvice(theAccountDAO);
+			//demoTheAfterThrowingAdvice(theAccountDAO);
+			demoTheAfterAdvice(theAccountDAO);
 		};
+	}
+
+	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
+
+		List<Account> theAccounts = null;
+
+		try {
+			// add a boolean flag to simulate exceptions
+			boolean tripWire = false;
+			theAccounts = theAccountDAO.findAccounts(tripWire);
+
+		} catch (Exception exc) {
+			System.out.println("\n\nMain Program ... caught exception: " + exc);
+		}
+		// display the accounts
+		System.out.println("\n\nMain Program: AfterThrowingAdvice");
+		System.out.println("-------");
+
+		System.out.println(theAccounts);
+
+		System.out.println("\n");
 	}
 
 	private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
 
 		List<Account> theAccounts = null;
-		theAccountDAO.findAccounts();
 
 		try {
 			// add a boolean flag to simulate exceptions
